@@ -144,9 +144,10 @@ $(document).ready(function() {
 	}
 
 
-	function go() {
-		var words = $('#words').val().split(/\s+/);
-		var size = parseInt($('#gridsize').val());
+    function go() {
+	var title = $('#title').val();
+	var words = $('#words').val().split(/\s+/);
+	var size = parseInt($('#gridsize').val());
 
 		var direction_names = {
 			'up-left': [-1,-1],
@@ -192,48 +193,54 @@ $(document).ready(function() {
 			$('#wordsearch').append(tr);
 		})
 		
-		function makeCode() {
-			var tex = '\
-\\documentclass{standalone}\n\n\
-\\usepackage[thinlines]{easytable}\n\n\
-\\begin{document}\n\n\
-\\begin{TAB}(e,15pt,15pt){|';
-			for(var i=0;i<size;i++) {
-				tex += 'c|';
-			}
-			tex += '}{|';
-			for(var i=0;i<size;i++) {
-				tex += 'c|';
-			}
-			tex +='}\n';
+// 		function makeCode() {
+// 			var tex = '\
+// \\documentclass{standalone}\n\n\
+// \\usepackage[thinlines]{easytable}\n\n\
+// \\begin{document}\n\n\
+// \\begin{TAB}(e,15pt,15pt){|';
+// 			for(var i=0;i<size;i++) {
+// 				tex += 'c|';
+// 			}
+// 			tex += '}{|';
+// 			for(var i=0;i<size;i++) {
+// 				tex += 'c|';
+// 			}
+// 			tex +='}\n';
 
-			var html = '<table>\n';
+// 			var html = '<table>\n';
 		
 
-			grid.map(function(row,y) {
-				html += '<tr>';
-				row.map(function(letter,x) {
-					html += '<td> '+letter+' </td>';
-				})
-				tex += row.join(' & ')+' \\\\ \n';
-				html += '</tr>\n';
-			})
+// 			grid.map(function(row,y) {
+// 				html += '<tr>';
+// 				row.map(function(letter,x) {
+// 					html += '<td> '+letter+' </td>';
+// 				})
+// 				tex += row.join(' & ')+' \\\\ \n';
+// 				html += '</tr>\n';
+// 			})
 
 
-			tex += '\
-\\end{TAB}\n\n\
-\\end{document}';
+// 			tex += '\
+// \\end{TAB}\n\n\
+// \\end{document}';
 
-			html += '</table>';
-			$('#tex').text(tex);
-			$('#html').text(html);
-		};
-	    makeCode();
+// 			html += '</table>';
+// 			$('#tex').text(tex);
+// 			$('#html').text(html);
+// 		};
+	// 	    makeCode();
+	function makeTitle() {
+	    const header = document.getElementById("heading");
+	    header.innerHTML = title;
+	}
+	makeTitle();
 	    function makeAnswers() {
 		let counter = 0;
 		let gridWidth = 5;
 		const answerGrid = [];
 		while(words.length) answerGrid.push(words.splice(0,gridWidth));
+		$("#answers tr").remove(); 
 		const table = document.getElementById("answers");
 		answerGrid.forEach( answerRow => {
 		    let row = table.insertRow();
@@ -251,7 +258,7 @@ $(document).ready(function() {
 			var x = parseInt($(this).attr('x'));
 			var y = parseInt($(this).attr('y'));
 			grid[y][x] = $(this).val();
-			makeCode();
+			makeAnswers();
 		});
 	}
 
