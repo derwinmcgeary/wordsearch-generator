@@ -228,8 +228,22 @@ $(document).ready(function() {
 			$('#tex').text(tex);
 			$('#html').text(html);
 		};
-		makeCode();
-
+	    makeCode();
+	    function makeAnswers() {
+		let counter = 0;
+		let gridWidth = 5;
+		const answerGrid = [];
+		while(words.length) answerGrid.push(words.splice(0,gridWidth));
+		const table = document.getElementById("answers");
+		answerGrid.forEach( answerRow => {
+		    let row = table.insertRow();
+		    answerRow.forEach( word => {
+			let answer = row.insertCell(counter%gridWidth);
+			answer.innerHTML = word;
+			counter++;})
+		})
+	    }		     
+	    makeAnswers();
 		$('#wordsearch').css('font-size',(22/(2*size))+'cm');
 
 
