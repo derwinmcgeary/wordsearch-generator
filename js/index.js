@@ -237,18 +237,21 @@ $(document).ready(function() {
 	makeTitle();
 	    function makeAnswers() {
 		let counter = 0;
-		let gridWidth = 5;
+		let gridWidth = 4;
 		const answerGrid = [];
 		while(words.length) answerGrid.push(words.splice(0,gridWidth));
-		$("#answers tr").remove(); 
-		const table = document.getElementById("answers");
-		answerGrid.forEach( answerRow => {
-		    let row = table.insertRow();
-		    answerRow.forEach( word => {
-			let answer = row.insertCell(counter%gridWidth);
-			answer.innerHTML = word;
-			counter++;})
-		})
+		$("#answers tr").remove();
+		showWords = document.getElementById("showwords");
+		if (showWords.checked) {
+		    const table = document.getElementById("answers");
+		    answerGrid.forEach( answerRow => {
+			let row = table.insertRow();
+			answerRow.forEach( word => {
+			    let answer = row.insertCell(counter%gridWidth);
+			    answer.innerHTML = word;
+			    counter++;})
+		    })
+		}
 	    }		     
 	    makeAnswers();
 		$('#wordsearch').css('font-size',(22/(2*size))+'cm');
@@ -264,7 +267,7 @@ $(document).ready(function() {
 
 	go();
 
-	$('#words,#gridsize').on('change keyup',function() {
+    $('#words,#gridsize,#showwords').on('change keyup',function() {
 		go(); 
 	});
 	$('#directions td').on('click',function() {
