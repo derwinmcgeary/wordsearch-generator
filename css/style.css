@@ -1,54 +1,83 @@
 #words {
-	width: 90%;
+    width: 90%;
+}
+
+p {
+    font-size: 0.5cm;
+    font-family: cursive;
+    text-align: center;
+}
+
+h1 {
+    font-size: 1.2cm;
+    font-family: cursive;
+    text-align: center;
 }
 
 #wordsearch {
-	font-size: 1.5cm;
-	border-collapse: collapse;
-	margin: 0 auto;
+    font-size: 0.75cm;
+    font-family: cursive;
+    text-transform: lowercase;
+    border-collapse: collapse;
+    margin: 0 auto;
+    margin-bottom: 2cm;
 }
 
 #wordsearch td {
-	width: 1.5em;
-	height: 1.5em;
-	text-align: center;
-	vertical-align: middle;
-	border: 1px solid #555;
+    width: 1.5em;
+    height: 1.2em;
+    text-align: center;
+    text-transform: lowercase;
+    vertical-align: middle;
+    border: 1px solid #555;
 }
+#answers td {
+    font-size: 0.5cm;
+    font-family: cursive;
+    text-align: center;
+    width: 18em;
+    height: 1.5em;
+    border-collapse: collapse;
+    horizontal-align: middle;
+    vertical-align: middle;
+    border: 1px solid #fff;
+    
+}
+
 #wordsearch input {
     width: 1.3em;
-	height: 1.3em;
-	padding: 0;
+    height: 1.3em;
+    padding: 0;
     font-size: 1.5em;
     border: 0;
     text-align: center;
-	text-transform: uppercase;
+    text-transform: lowercase;
 }
 .explanation {
-	text-align: center;
+    text-align: center;
 }
 
 #directions {
-	display: inline-block;
-	vertical-align: middle;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 #directions td {
-	position: relative;
-	cursor: pointer;
-	color: #aaa;
-	width: 1em;
-	height: 1em;
-	text-align: center;
-	font-size: 1.5em;
+    position: relative;
+    cursor: pointer;
+    color: #aaa;
+    width: 1em;
+    height: 1em;
+    text-align: center;
+    font-size: 1.5em;
 }
 #directions td.on {
-	color: black;
-	font-weight: bold;
+    color: black;
+    font-weight: bold;
 }
 
 @media print {
-	.control {
-		display: none;
-	}
+    .control {
+	display: none;
+    }
 }
