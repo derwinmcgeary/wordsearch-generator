@@ -1,0 +1,9 @@
+* Wordsearch Generator
+This is a fork of the [[http://christianp.github.io/wordsearch-generator/][original generator]] by ChristianP after some feedback from a Primary School teacher. Changes include:
+- Lowercase cursive font is now default
+- Answers can optionally be printed below the puzzle
+- Title can be chosen as well
+- LaTeX/HTML code output has been removed
+
+* Usage
+This is currently hosted on [[https://mayapapaya.fun][MayaPapaya.fun]] - go there and type in the words you want to include. Hit Print or press control P to get the print version with no controls visible, and check that it fits on one page. For best results, turn off headers and footers to get a clean puzzle sheet.
